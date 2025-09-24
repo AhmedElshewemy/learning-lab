@@ -3,11 +3,13 @@ package main
 import (
 	"fmt"
 	"log"
-	"github.com/Shopify/sarama"
+	"time"
+
+	"github.com/IBM/sarama"	
 )
 
 const (
-	kafkaHost = "localhost:9092"
+	kafkaHost = "host.docker.internal:9092"
 	topic     = "fancy-topic"
 )
 
