@@ -2,6 +2,8 @@ syntax = "proto3";
 
 package addressbook;
 
+option go_package = "github.com/AhmedElshewemy/learning-lab/grpc";
+
 // A person entry in the address book
 message Person {
     int32 id = 1;
@@ -22,7 +24,14 @@ message Person {
     repeated PhoneNumber phones = 4;
 }
 
-// The address book itself
-message AddressBook {
-    repeated Person people = 1;
+
+service AddressBook {
+    rpc ListPersons(ListPersonsRequest) returns (ListPersonsResponse);
+    
+}
+
+message ListPersonsRequest {}
+
+message ListPersonsResponse {
+    repeated Person person = 1;
 }
