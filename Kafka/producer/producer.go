@@ -36,7 +36,7 @@ func main() {
 
 		partition, offset, err := conn.SendMessage(msg)
 		if err != nil {
-			log.Println("Failed to send message: ", err)
+			log.Fatal("Failed to send message: ", err)
 		} else {
 			log.Printf("Message sent to partition %d at offset %d\n", partition, offset)
 		}
