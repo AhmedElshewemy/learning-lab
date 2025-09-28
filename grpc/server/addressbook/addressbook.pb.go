@@ -291,8 +291,8 @@ const file_server_addressbook_addressbook_proto_rawDesc = "" +
 	"\x04WORK\x10\x02\"\x14\n" +
 	"\x12ListPersonsRequest\"B\n" +
 	"\x13ListPersonsResponse\x12+\n" +
-	"\x06person\x18\x01 \x03(\v2\x13.addressbook.PersonR\x06person2_\n" +
-	"\vAddressBook\x12P\n" +
+	"\x06person\x18\x01 \x03(\v2\x13.addressbook.PersonR\x06person2f\n" +
+	"\x12AddressBookService\x12P\n" +
 	"\vListPersons\x12\x1f.addressbook.ListPersonsRequest\x1a .addressbook.ListPersonsResponseB\x14Z\x12server/addressbookb\x06proto3"
 
 var (
@@ -320,8 +320,8 @@ var file_server_addressbook_addressbook_proto_depIdxs = []int32{
 	4, // 0: addressbook.Person.phones:type_name -> addressbook.Person.PhoneNumber
 	1, // 1: addressbook.ListPersonsResponse.person:type_name -> addressbook.Person
 	0, // 2: addressbook.Person.PhoneNumber.type:type_name -> addressbook.Person.PhoneType
-	2, // 3: addressbook.AddressBook.ListPersons:input_type -> addressbook.ListPersonsRequest
-	3, // 4: addressbook.AddressBook.ListPersons:output_type -> addressbook.ListPersonsResponse
+	2, // 3: addressbook.AddressBookService.ListPersons:input_type -> addressbook.ListPersonsRequest
+	3, // 4: addressbook.AddressBookService.ListPersons:output_type -> addressbook.ListPersonsResponse
 	4, // [4:5] is the sub-list for method output_type
 	3, // [3:4] is the sub-list for method input_type
 	3, // [3:3] is the sub-list for extension type_name

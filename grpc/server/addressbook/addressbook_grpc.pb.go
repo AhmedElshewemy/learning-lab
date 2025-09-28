@@ -19,101 +19,101 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	AddressBook_ListPersons_FullMethodName = "/addressbook.AddressBook/ListPersons"
+	AddressBookService_ListPersons_FullMethodName = "/addressbook.AddressBookService/ListPersons"
 )
 
-// AddressBookClient is the client API for AddressBook service.
+// AddressBookServiceClient is the client API for AddressBookService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type AddressBookClient interface {
+type AddressBookServiceClient interface {
 	ListPersons(ctx context.Context, in *ListPersonsRequest, opts ...grpc.CallOption) (*ListPersonsResponse, error)
 }
 
-type addressBookClient struct {
+type addressBookServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewAddressBookClient(cc grpc.ClientConnInterface) AddressBookClient {
-	return &addressBookClient{cc}
+func NewAddressBookServiceClient(cc grpc.ClientConnInterface) AddressBookServiceClient {
+	return &addressBookServiceClient{cc}
 }
 
-func (c *addressBookClient) ListPersons(ctx context.Context, in *ListPersonsRequest, opts ...grpc.CallOption) (*ListPersonsResponse, error) {
+func (c *addressBookServiceClient) ListPersons(ctx context.Context, in *ListPersonsRequest, opts ...grpc.CallOption) (*ListPersonsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(ListPersonsResponse)
-	err := c.cc.Invoke(ctx, AddressBook_ListPersons_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, AddressBookService_ListPersons_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// AddressBookServer is the server API for AddressBook service.
-// All implementations must embed UnimplementedAddressBookServer
+// AddressBookServiceServer is the server API for AddressBookService service.
+// All implementations must embed UnimplementedAddressBookServiceServer
 // for forward compatibility.
-type AddressBookServer interface {
+type AddressBookServiceServer interface {
 	ListPersons(context.Context, *ListPersonsRequest) (*ListPersonsResponse, error)
-	mustEmbedUnimplementedAddressBookServer()
+	mustEmbedUnimplementedAddressBookServiceServer()
 }
 
-// UnimplementedAddressBookServer must be embedded to have
+// UnimplementedAddressBookServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedAddressBookServer struct{}
+type UnimplementedAddressBookServiceServer struct{}
 
-func (UnimplementedAddressBookServer) ListPersons(context.Context, *ListPersonsRequest) (*ListPersonsResponse, error) {
+func (UnimplementedAddressBookServiceServer) ListPersons(context.Context, *ListPersonsRequest) (*ListPersonsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListPersons not implemented")
 }
-func (UnimplementedAddressBookServer) mustEmbedUnimplementedAddressBookServer() {}
-func (UnimplementedAddressBookServer) testEmbeddedByValue()                     {}
+func (UnimplementedAddressBookServiceServer) mustEmbedUnimplementedAddressBookServiceServer() {}
+func (UnimplementedAddressBookServiceServer) testEmbeddedByValue()                            {}
 
-// UnsafeAddressBookServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to AddressBookServer will
+// UnsafeAddressBookServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to AddressBookServiceServer will
 // result in compilation errors.
-type UnsafeAddressBookServer interface {
-	mustEmbedUnimplementedAddressBookServer()
+type UnsafeAddressBookServiceServer interface {
+	mustEmbedUnimplementedAddressBookServiceServer()
 }
 
-func RegisterAddressBookServer(s grpc.ServiceRegistrar, srv AddressBookServer) {
-	// If the following call pancis, it indicates UnimplementedAddressBookServer was
+func RegisterAddressBookServiceServer(s grpc.ServiceRegistrar, srv AddressBookServiceServer) {
+	// If the following call pancis, it indicates UnimplementedAddressBookServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&AddressBook_ServiceDesc, srv)
+	s.RegisterService(&AddressBookService_ServiceDesc, srv)
 }
 
-func _AddressBook_ListPersons_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _AddressBookService_ListPersons_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ListPersonsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AddressBookServer).ListPersons(ctx, in)
+		return srv.(AddressBookServiceServer).ListPersons(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: AddressBook_ListPersons_FullMethodName,
+		FullMethod: AddressBookService_ListPersons_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AddressBookServer).ListPersons(ctx, req.(*ListPersonsRequest))
+		return srv.(AddressBookServiceServer).ListPersons(ctx, req.(*ListPersonsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// AddressBook_ServiceDesc is the grpc.ServiceDesc for AddressBook service.
+// AddressBookService_ServiceDesc is the grpc.ServiceDesc for AddressBookService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var AddressBook_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "addressbook.AddressBook",
-	HandlerType: (*AddressBookServer)(nil),
+var AddressBookService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "addressbook.AddressBookService",
+	HandlerType: (*AddressBookServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "ListPersons",
-			Handler:    _AddressBook_ListPersons_Handler,
+			Handler:    _AddressBookService_ListPersons_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

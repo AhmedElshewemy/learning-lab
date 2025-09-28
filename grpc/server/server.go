@@ -8,7 +8,7 @@ import (
 )
 
 type AddressbookServer struct {
-    pb.UnimplementedAddressBookServer
+    pb.UnimplementedAddressBookServiceServer
 }
 
 func NewAddressbookServer() *AddressbookServer {
