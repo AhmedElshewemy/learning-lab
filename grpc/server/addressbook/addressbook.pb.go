@@ -2,9 +2,9 @@
 // versions:
 // 	protoc-gen-go v1.36.9
 // 	protoc        v3.21.12
-// source: addressbook.proto
+// source: server/addressbook/addressbook.proto
 
-package grpc
+package addressbook
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -54,11 +54,11 @@ func (x Person_PhoneType) String() string {
 }
 
 func (Person_PhoneType) Descriptor() protoreflect.EnumDescriptor {
-	return file_addressbook_proto_enumTypes[0].Descriptor()
+	return file_server_addressbook_addressbook_proto_enumTypes[0].Descriptor()
 }
 
 func (Person_PhoneType) Type() protoreflect.EnumType {
-	return &file_addressbook_proto_enumTypes[0]
+	return &file_server_addressbook_addressbook_proto_enumTypes[0]
 }
 
 func (x Person_PhoneType) Number() protoreflect.EnumNumber {
@@ -67,7 +67,7 @@ func (x Person_PhoneType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use Person_PhoneType.Descriptor instead.
 func (Person_PhoneType) EnumDescriptor() ([]byte, []int) {
-	return file_addressbook_proto_rawDescGZIP(), []int{0, 0}
+	return file_server_addressbook_addressbook_proto_rawDescGZIP(), []int{0, 0}
 }
 
 // A person entry in the address book
@@ -83,7 +83,7 @@ type Person struct {
 
 func (x *Person) Reset() {
 	*x = Person{}
-	mi := &file_addressbook_proto_msgTypes[0]
+	mi := &file_server_addressbook_addressbook_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -95,7 +95,7 @@ func (x *Person) String() string {
 func (*Person) ProtoMessage() {}
 
 func (x *Person) ProtoReflect() protoreflect.Message {
-	mi := &file_addressbook_proto_msgTypes[0]
+	mi := &file_server_addressbook_addressbook_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -108,7 +108,7 @@ func (x *Person) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Person.ProtoReflect.Descriptor instead.
 func (*Person) Descriptor() ([]byte, []int) {
-	return file_addressbook_proto_rawDescGZIP(), []int{0}
+	return file_server_addressbook_addressbook_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *Person) GetId() int32 {
@@ -147,7 +147,7 @@ type ListPersonsRequest struct {
 
 func (x *ListPersonsRequest) Reset() {
 	*x = ListPersonsRequest{}
-	mi := &file_addressbook_proto_msgTypes[1]
+	mi := &file_server_addressbook_addressbook_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -159,7 +159,7 @@ func (x *ListPersonsRequest) String() string {
 func (*ListPersonsRequest) ProtoMessage() {}
 
 func (x *ListPersonsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_addressbook_proto_msgTypes[1]
+	mi := &file_server_addressbook_addressbook_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -172,7 +172,7 @@ func (x *ListPersonsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListPersonsRequest.ProtoReflect.Descriptor instead.
 func (*ListPersonsRequest) Descriptor() ([]byte, []int) {
-	return file_addressbook_proto_rawDescGZIP(), []int{1}
+	return file_server_addressbook_addressbook_proto_rawDescGZIP(), []int{1}
 }
 
 type ListPersonsResponse struct {
@@ -184,7 +184,7 @@ type ListPersonsResponse struct {
 
 func (x *ListPersonsResponse) Reset() {
 	*x = ListPersonsResponse{}
-	mi := &file_addressbook_proto_msgTypes[2]
+	mi := &file_server_addressbook_addressbook_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -196,7 +196,7 @@ func (x *ListPersonsResponse) String() string {
 func (*ListPersonsResponse) ProtoMessage() {}
 
 func (x *ListPersonsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_addressbook_proto_msgTypes[2]
+	mi := &file_server_addressbook_addressbook_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -209,7 +209,7 @@ func (x *ListPersonsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListPersonsResponse.ProtoReflect.Descriptor instead.
 func (*ListPersonsResponse) Descriptor() ([]byte, []int) {
-	return file_addressbook_proto_rawDescGZIP(), []int{2}
+	return file_server_addressbook_addressbook_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *ListPersonsResponse) GetPerson() []*Person {
@@ -229,7 +229,7 @@ type Person_PhoneNumber struct {
 
 func (x *Person_PhoneNumber) Reset() {
 	*x = Person_PhoneNumber{}
-	mi := &file_addressbook_proto_msgTypes[3]
+	mi := &file_server_addressbook_addressbook_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -241,7 +241,7 @@ func (x *Person_PhoneNumber) String() string {
 func (*Person_PhoneNumber) ProtoMessage() {}
 
 func (x *Person_PhoneNumber) ProtoReflect() protoreflect.Message {
-	mi := &file_addressbook_proto_msgTypes[3]
+	mi := &file_server_addressbook_addressbook_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -254,7 +254,7 @@ func (x *Person_PhoneNumber) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Person_PhoneNumber.ProtoReflect.Descriptor instead.
 func (*Person_PhoneNumber) Descriptor() ([]byte, []int) {
-	return file_addressbook_proto_rawDescGZIP(), []int{0, 0}
+	return file_server_addressbook_addressbook_proto_rawDescGZIP(), []int{0, 0}
 }
 
 func (x *Person_PhoneNumber) GetNumber() string {
@@ -271,11 +271,11 @@ func (x *Person_PhoneNumber) GetType() Person_PhoneType {
 	return Person_MOBILE
 }
 
-var File_addressbook_proto protoreflect.FileDescriptor
+var File_server_addressbook_addressbook_proto protoreflect.FileDescriptor
 
-const file_addressbook_proto_rawDesc = "" +
+const file_server_addressbook_addressbook_proto_rawDesc = "" +
 	"\n" +
-	"\x11addressbook.proto\x12\vaddressbook\"\x82\x02\n" +
+	"$server/addressbook/addressbook.proto\x12\vaddressbook\"\x82\x02\n" +
 	"\x06Person\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\x05R\x02id\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x12\x14\n" +
@@ -293,30 +293,30 @@ const file_addressbook_proto_rawDesc = "" +
 	"\x13ListPersonsResponse\x12+\n" +
 	"\x06person\x18\x01 \x03(\v2\x13.addressbook.PersonR\x06person2_\n" +
 	"\vAddressBook\x12P\n" +
-	"\vListPersons\x12\x1f.addressbook.ListPersonsRequest\x1a .addressbook.ListPersonsResponseB-Z+github.com/AhmedElshewemy/learning-lab/grpcb\x06proto3"
+	"\vListPersons\x12\x1f.addressbook.ListPersonsRequest\x1a .addressbook.ListPersonsResponseB\x14Z\x12server/addressbookb\x06proto3"
 
 var (
-	file_addressbook_proto_rawDescOnce sync.Once
-	file_addressbook_proto_rawDescData []byte
+	file_server_addressbook_addressbook_proto_rawDescOnce sync.Once
+	file_server_addressbook_addressbook_proto_rawDescData []byte
 )
 
-func file_addressbook_proto_rawDescGZIP() []byte {
-	file_addressbook_proto_rawDescOnce.Do(func() {
-		file_addressbook_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_addressbook_proto_rawDesc), len(file_addressbook_proto_rawDesc)))
+func file_server_addressbook_addressbook_proto_rawDescGZIP() []byte {
+	file_server_addressbook_addressbook_proto_rawDescOnce.Do(func() {
+		file_server_addressbook_addressbook_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_server_addressbook_addressbook_proto_rawDesc), len(file_server_addressbook_addressbook_proto_rawDesc)))
 	})
-	return file_addressbook_proto_rawDescData
+	return file_server_addressbook_addressbook_proto_rawDescData
 }
 
-var file_addressbook_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
-var file_addressbook_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
-var file_addressbook_proto_goTypes = []any{
+var file_server_addressbook_addressbook_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
+var file_server_addressbook_addressbook_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
+var file_server_addressbook_addressbook_proto_goTypes = []any{
 	(Person_PhoneType)(0),       // 0: addressbook.Person.PhoneType
 	(*Person)(nil),              // 1: addressbook.Person
 	(*ListPersonsRequest)(nil),  // 2: addressbook.ListPersonsRequest
 	(*ListPersonsResponse)(nil), // 3: addressbook.ListPersonsResponse
 	(*Person_PhoneNumber)(nil),  // 4: addressbook.Person.PhoneNumber
 }
-var file_addressbook_proto_depIdxs = []int32{
+var file_server_addressbook_addressbook_proto_depIdxs = []int32{
 	4, // 0: addressbook.Person.phones:type_name -> addressbook.Person.PhoneNumber
 	1, // 1: addressbook.ListPersonsResponse.person:type_name -> addressbook.Person
 	0, // 2: addressbook.Person.PhoneNumber.type:type_name -> addressbook.Person.PhoneType
@@ -329,27 +329,27 @@ var file_addressbook_proto_depIdxs = []int32{
 	0, // [0:3] is the sub-list for field type_name
 }
 
-func init() { file_addressbook_proto_init() }
-func file_addressbook_proto_init() {
-	if File_addressbook_proto != nil {
+func init() { file_server_addressbook_addressbook_proto_init() }
+func file_server_addressbook_addressbook_proto_init() {
+	if File_server_addressbook_addressbook_proto != nil {
 		return
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: unsafe.Slice(unsafe.StringData(file_addressbook_proto_rawDesc), len(file_addressbook_proto_rawDesc)),
+			RawDescriptor: unsafe.Slice(unsafe.StringData(file_server_addressbook_addressbook_proto_rawDesc), len(file_server_addressbook_addressbook_proto_rawDesc)),
 			NumEnums:      1,
 			NumMessages:   4,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
-		GoTypes:           file_addressbook_proto_goTypes,
-		DependencyIndexes: file_addressbook_proto_depIdxs,
-		EnumInfos:         file_addressbook_proto_enumTypes,
-		MessageInfos:      file_addressbook_proto_msgTypes,
+		GoTypes:           file_server_addressbook_addressbook_proto_goTypes,
+		DependencyIndexes: file_server_addressbook_addressbook_proto_depIdxs,
+		EnumInfos:         file_server_addressbook_addressbook_proto_enumTypes,
+		MessageInfos:      file_server_addressbook_addressbook_proto_msgTypes,
 	}.Build()
-	File_addressbook_proto = out.File
-	file_addressbook_proto_goTypes = nil
-	file_addressbook_proto_depIdxs = nil
+	File_server_addressbook_addressbook_proto = out.File
+	file_server_addressbook_addressbook_proto_goTypes = nil
+	file_server_addressbook_addressbook_proto_depIdxs = nil
 }

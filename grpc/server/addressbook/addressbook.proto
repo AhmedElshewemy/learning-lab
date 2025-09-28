@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package addressbook;
 
-option go_package = "github.com/AhmedElshewemy/learning-lab/grpc";
+option go_package = "server/addressbook";
 
 // A person entry in the address book
 message Person {
@@ -25,7 +25,7 @@ message Person {
 }
 
 
-service AddressBook {
+service AddressBookService {
     rpc ListPersons(ListPersonsRequest) returns (ListPersonsResponse);
     
 }

@@ -2,9 +2,9 @@
 // versions:
 // - protoc-gen-go-grpc v1.5.1
 // - protoc             v3.21.12
-// source: addressbook.proto
+// source: server/addressbook/addressbook.proto
 
-package grpc
+package addressbook
 
 import (
 	context "context"
@@ -117,5 +117,5 @@ var AddressBook_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "addressbook.proto",
+	Metadata: "server/addressbook/addressbook.proto",
 }
