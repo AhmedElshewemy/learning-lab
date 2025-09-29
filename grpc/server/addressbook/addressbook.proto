@@ -27,7 +27,7 @@ message Person {
 
 service AddressBookService {
     rpc ListPersons(ListPersonsRequest) returns (ListPersonsResponse);
-    
+    rpc AddPerson(Person) returns (AddPersonResponse);
 }
 
 message ListPersonsRequest {}
@@ -35,3 +35,5 @@ message ListPersonsRequest {}
 message ListPersonsResponse {
     repeated Person person = 1;
 }
+
+message AddPersonResponse {}

@@ -219,6 +219,42 @@ func (x *ListPersonsResponse) GetPerson() []*Person {
 	return nil
 }
 
+type AddPersonResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddPersonResponse) Reset() {
+	*x = AddPersonResponse{}
+	mi := &file_server_addressbook_addressbook_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddPersonResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddPersonResponse) ProtoMessage() {}
+
+func (x *AddPersonResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_server_addressbook_addressbook_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddPersonResponse.ProtoReflect.Descriptor instead.
+func (*AddPersonResponse) Descriptor() ([]byte, []int) {
+	return file_server_addressbook_addressbook_proto_rawDescGZIP(), []int{3}
+}
+
 type Person_PhoneNumber struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Number        string                 `protobuf:"bytes,1,opt,name=number,proto3" json:"number,omitempty"`
@@ -229,7 +265,7 @@ type Person_PhoneNumber struct {
 
 func (x *Person_PhoneNumber) Reset() {
 	*x = Person_PhoneNumber{}
-	mi := &file_server_addressbook_addressbook_proto_msgTypes[3]
+	mi := &file_server_addressbook_addressbook_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -241,7 +277,7 @@ func (x *Person_PhoneNumber) String() string {
 func (*Person_PhoneNumber) ProtoMessage() {}
 
 func (x *Person_PhoneNumber) ProtoReflect() protoreflect.Message {
-	mi := &file_server_addressbook_addressbook_proto_msgTypes[3]
+	mi := &file_server_addressbook_addressbook_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -291,9 +327,11 @@ const file_server_addressbook_addressbook_proto_rawDesc = "" +
 	"\x04WORK\x10\x02\"\x14\n" +
 	"\x12ListPersonsRequest\"B\n" +
 	"\x13ListPersonsResponse\x12+\n" +
-	"\x06person\x18\x01 \x03(\v2\x13.addressbook.PersonR\x06person2f\n" +
+	"\x06person\x18\x01 \x03(\v2\x13.addressbook.PersonR\x06person\"\x13\n" +
+	"\x11AddPersonResponse2\xa8\x01\n" +
 	"\x12AddressBookService\x12P\n" +
-	"\vListPersons\x12\x1f.addressbook.ListPersonsRequest\x1a .addressbook.ListPersonsResponseB\x14Z\x12server/addressbookb\x06proto3"
+	"\vListPersons\x12\x1f.addressbook.ListPersonsRequest\x1a .addressbook.ListPersonsResponse\x12@\n" +
+	"\tAddPerson\x12\x13.addressbook.Person\x1a\x1e.addressbook.AddPersonResponseB\x14Z\x12server/addressbookb\x06proto3"
 
 var (
 	file_server_addressbook_addressbook_proto_rawDescOnce sync.Once
@@ -308,22 +346,25 @@ func file_server_addressbook_addressbook_proto_rawDescGZIP() []byte {
 }
 
 var file_server_addressbook_addressbook_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
-var file_server_addressbook_addressbook_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
+var file_server_addressbook_addressbook_proto_msgTypes = make([]protoimpl.MessageInfo, 5)
 var file_server_addressbook_addressbook_proto_goTypes = []any{
 	(Person_PhoneType)(0),       // 0: addressbook.Person.PhoneType
 	(*Person)(nil),              // 1: addressbook.Person
 	(*ListPersonsRequest)(nil),  // 2: addressbook.ListPersonsRequest
 	(*ListPersonsResponse)(nil), // 3: addressbook.ListPersonsResponse
-	(*Person_PhoneNumber)(nil),  // 4: addressbook.Person.PhoneNumber
+	(*AddPersonResponse)(nil),   // 4: addressbook.AddPersonResponse
+	(*Person_PhoneNumber)(nil),  // 5: addressbook.Person.PhoneNumber
 }
 var file_server_addressbook_addressbook_proto_depIdxs = []int32{
-	4, // 0: addressbook.Person.phones:type_name -> addressbook.Person.PhoneNumber
+	5, // 0: addressbook.Person.phones:type_name -> addressbook.Person.PhoneNumber
 	1, // 1: addressbook.ListPersonsResponse.person:type_name -> addressbook.Person
 	0, // 2: addressbook.Person.PhoneNumber.type:type_name -> addressbook.Person.PhoneType
 	2, // 3: addressbook.AddressBookService.ListPersons:input_type -> addressbook.ListPersonsRequest
-	3, // 4: addressbook.AddressBookService.ListPersons:output_type -> addressbook.ListPersonsResponse
-	4, // [4:5] is the sub-list for method output_type
-	3, // [3:4] is the sub-list for method input_type
+	1, // 4: addressbook.AddressBookService.AddPerson:input_type -> addressbook.Person
+	3, // 5: addressbook.AddressBookService.ListPersons:output_type -> addressbook.ListPersonsResponse
+	4, // 6: addressbook.AddressBookService.AddPerson:output_type -> addressbook.AddPersonResponse
+	5, // [5:7] is the sub-list for method output_type
+	3, // [3:5] is the sub-list for method input_type
 	3, // [3:3] is the sub-list for extension type_name
 	3, // [3:3] is the sub-list for extension extendee
 	0, // [0:3] is the sub-list for field type_name
@@ -340,7 +381,7 @@ func file_server_addressbook_addressbook_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_server_addressbook_addressbook_proto_rawDesc), len(file_server_addressbook_addressbook_proto_rawDesc)),
 			NumEnums:      1,
-			NumMessages:   4,
+			NumMessages:   5,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
