@@ -15,12 +15,18 @@ func main() {
 	if err != nil {
 		log.Fatal("Error starting gRPC server: %v", err)
 	}
+	
+	defer listener.Close()
+	
 	grpcServer := grpc.NewServer()
 
 	reflection.Register(grpcServer)
 	
 	pb.RegisterAddressBookServiceServer(grpcServer, server.NewAddressbookServer())
 	log.Println("gRPC server listening on :50051")
+	
 	grpcServer.Serve(listener)
+	defer grpcServer.GracefulStop()
+	
 }
 
