@@ -14,5 +14,11 @@
       <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
+    <!-- Add dependencies here -->
+<dependency>
+    <groupId>org.apache.kafka</groupId>
+    <artifactId>kafka-clients</artifactId>
+    <version>3.7.0</version>
+</dependency>
   </dependencies>
 </project>
