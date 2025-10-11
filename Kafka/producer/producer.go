@@ -30,15 +30,15 @@ func main() {
 	for {
 		msg := &sarama.ProducerMessage{
 			Topic: topic,
-			Key:   sarama.StringEncoder(fmt.Sprintf("Key-%d", i)),
-			Value: sarama.StringEncoder(fmt.Sprintf("Fancy message %d", i)),
+			Key:   sarama.StringEncoder(fmt.Sprintf("%v", i)),
+			Value: sarama.StringEncoder(fmt.Sprintf("Fancy message %v", i)),
 		}
 
 		partition, offset, err := conn.SendMessage(msg)
 		if err != nil {
 			log.Fatal("Failed to send message: ", err)
 		} else {
-			log.Printf("Message sent to partition %d at offset %d\n", partition, offset)
+			log.Printf("Message %v sent to partition %d at offset %d\n",msg.Value, partition, offset)
 		}
 
 		i++

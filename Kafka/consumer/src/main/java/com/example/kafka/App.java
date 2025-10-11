@@ -12,7 +12,7 @@ import org.apache.kafka.clients.consumer.KafkaConsumer;
 
 public class App 
 {
-    private static String kafkaHost = "localhost:9092";
+    private static String kafkaHost = "host.docker.internal:9092";
     private static String topic = "fancy-topic";
     private static String groupName = "fancy-group";
     public static void main( String[] args )
@@ -26,13 +26,13 @@ public class App
         consumer.subscribe(Collections.singletonList(topic));
 
         try{
-            System.out.printf("Subscribed to topic: %s\n", topic);
+            System.out.printf("Subscribed and listening to topic: %s\n", topic);
             while(true){
-                ConsumerRecords<String, String> records = consumer.poll(Duration.ofSeconds(10));
+                ConsumerRecords<String, String> records = consumer.poll(Duration.ofSeconds(2));
                 for(ConsumerRecord<String, String> record : records){
                     System.out.printf("Consumed record with key %s and value %s, from partition %d, offset %d\n", 
                     record.key(),record.value(), record.partition(), record.offset());
-                    Thread.sleep(new Random().nextInt(5000));
+                    Thread.sleep(new Random().nextInt(3000));
                 
                 }
             }
